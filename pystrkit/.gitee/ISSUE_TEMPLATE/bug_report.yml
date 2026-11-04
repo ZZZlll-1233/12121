@@ -1,0 +1,62 @@
+name: Bug 反馈
+description: 报告一个可复现的问题
+labels: ["bug", "待确认"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        感谢反馈！请把下面的模板填完整，能省掉很多来回确认。
+
+        **环境信息很重要**：操作系统、Python 版本、pystrkit 版本，
+        不同的 Python 版本下 str 相关行为有差异。
+
+  - type: input
+    id: version
+    attributes:
+      label: pystrkit 版本
+      placeholder: "0.1.0"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: python-version
+    attributes:
+      label: Python 版本
+      options:
+        - 3.9
+        - 3.10
+        - 3.11
+        - 3.12
+        - 3.13
+        - 其他
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: 问题描述
+      description: 期望结果是什么？实际结果是什么？
+      placeholder: |
+        期望: to_rmb_upper("1.05") 返回 "壹元零伍分"
+        实际: 返回 "壹元伍分"
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: 最小复现代码
+      description: 尽量精简到能单独复现的代码
+      render: python
+      placeholder: |
+        from pystrkit import to_rmb_upper
+        print(to_rmb_upper("1.05"))
+    validations:
+      required: true
+
+  - type: textarea
+    id: extra
+    attributes:
+      label: 补充信息
+      description: 操作系统、终端输出截图等

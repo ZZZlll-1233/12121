@@ -1,0 +1,31 @@
+name: 功能建议
+description: 提出新功能或改进
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: 要解决什么问题
+      description: 先说问题，别直接说方案。这样讨论空间更大，也更容易达成共识。
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: 你期望的用法
+      description: 给出你想要的调用方式，越具体越好
+      render: python
+      placeholder: |
+        pystrkit.mask_bank_card("6222021234567890123")
+        # -> "6222 **** **** 0123"
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: scope
+    attributes:
+      label: 范围确认
+      options:
+        - label: 我可以自己实现并提 PR
+        - label: 这个功能需要保持零依赖
